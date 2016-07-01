@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum{ Plus,Minus,Multiply,Divide} CalcOperation;
+typedef enum{ Add,Subtract,Multiply,Divide} CalcOperation;
 NSString *storage;
 CalcOperation operation;
 
@@ -19,7 +19,6 @@ CalcOperation operation;
 - (IBAction)btnSeven:(UIButton *)sender;
 - (IBAction)btnEight:(UIButton *)sender;
 - (IBAction)btnNine:(UIButton *)sender;
-- (IBAction)btnClear:(UIButton *)sender;
 - (IBAction)btnFour:(UIButton *)sender;
 - (IBAction)btnFive:(UIButton *)sender;
 - (IBAction)btnSix:(UIButton *)sender;
@@ -32,6 +31,7 @@ CalcOperation operation;
 - (IBAction)btnDivide:(UIButton *)sender;
 - (IBAction)btnMultiply:(UIButton *)sender;
 - (IBAction)btnEqual:(UIButton *)sender;
+- (IBAction)btnClear:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UITextField *txtView;
 
 

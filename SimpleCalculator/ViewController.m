@@ -36,9 +36,6 @@
     _txtView.text = [NSString stringWithFormat:@"%@9", _txtView.text];
 }
 
-- (IBAction)btnClear:(UIButton *)sender {
-}
-
 - (IBAction)btnFour:(UIButton *)sender {
     _txtView.text = [NSString stringWithFormat:@"%@4", _txtView.text];
 }
@@ -63,21 +60,52 @@
     _txtView.text = [NSString stringWithFormat:@"%@3", _txtView.text];}
 
 - (IBAction)btnZero:(UIButton *)sender {
-    _txtView.text = [NSString stringWithFormat:@"%@0", _txtView.text];}
-
+    _txtView.text = [NSString stringWithFormat:@"%@0", _txtView.text];
+}
+- (IBAction)btnClear:(UIButton *)sender {
+    _txtView.text = @"";
+}
 - (IBAction)btnAdd:(UIButton *)sender {
+    operation = Add;
+    storage = _txtView.text;
+    _txtView.text=@"";
 }
 
 - (IBAction)btnSub:(UIButton *)sender {
+    operation = Subtract;
+    storage = _txtView.text;
+    _txtView.text=@"";
+    
 }
 
 - (IBAction)btnDivide:(UIButton *)sender {
+    operation = Divide;
+    storage = _txtView.text;
+    _txtView.text=@"";
 }
 
 - (IBAction)btnMultiply:(UIButton *)sender {
+    operation = Multiply;
+    storage = _txtView.text;
+    _txtView.text=@"";
 }
 
-- (IBAction)btnEqual:(UIButton *)sender {
+- (IBAction) btnEqual:(UIButton *)sender {
+    NSString *val = _txtView.text;
+    switch(operation) {
+        case Add :
+            _txtView.text= [NSString stringWithFormat:@"%qi",[val longLongValue]+[storage longLongValue]];
+            break;
+        case Subtract:
+            _txtView.text= [NSString stringWithFormat:@"%qi",[storage longLongValue]-[val longLongValue]];
+            break;
+        case Divide:
+            _txtView.text= [NSString stringWithFormat:@"%qi",[storage longLongValue]/[val longLongValue]];
+            break;
+        case Multiply:
+            _txtView.text= [NSString stringWithFormat:@"%qi",[val longLongValue]*[storage longLongValue]];
+            break;
+    }
 }
 
 
